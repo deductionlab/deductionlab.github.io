@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-07-14 KST
 author: Sori Lee and Meiying Ren
 ---
 
