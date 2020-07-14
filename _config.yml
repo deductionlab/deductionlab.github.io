@@ -1,0 +1,60 @@
+#
+# Site info
+#
+
+title: Deduction Lab
+#description:
+
+#
+# ...
+#
+
+lsi: false
+
+safe: true
+
+source: [your repo's top level directory]
+
+incremental: false
+
+highlighter: rouge
+
+gist:
+  noscript: false
+
+kramdown:
+  math_engine: mathjax # cannot change this anyway -- GH Pages overrides it to be mathjax
+  syntax_highlighter: rouge
+
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+
+plugins:
+  - jekyll-titles-from-headings # GH Pages automatically enables this though
+  - jekyll-remote-theme
+  - jekyll-include-cache # for the minimal-mistakes@4.19.2 theme
+
+titles_from_headings:
+  enabled:     true # GH Pages forces this anyway
+  strip_title: true # otherwise mimnima / minimal-mistakes@4.19.2 duplicates the title 
+  collections: true # otherwise the title inferred from a post's filename takes precedence
+
+#remote_theme: "mmistakes/minimal-mistakes@4.19.2"
+
+#theme: minima
+
+#remote_theme: "jekyll/minima@v2.5.1"
+remote_theme: "jekyll/minima@5283ae1"
+
+minima:
+  skin: classic
