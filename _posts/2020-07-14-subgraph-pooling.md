@@ -40,6 +40,6 @@ from the syntax tree of the formula.-->
 
 - [Pal20] Aditya Paliwal, Sarah Loos, Markus Rabe, Kshitij Bansal and Christian Szegedy (2020). "Graph Representation for Higher-Order Logic and Theorem Proving". In *Proceedings of the AAAI Conference on Artificial Intelligence*, 34(03), 2967-2974. Palo Alto, California, USA: AAAI Press. <https://doi.org/10.1609/aaai.v34i03.5689>
 
-- [Tai15] Kai Sheng Tai, Richard Socher and Christopher D. Manning (2015). "Improved semantic representations from tree-structured long short-term memory networks". In *Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)*, pp. 1556–1566. http://dx.doi.org/10.3115/v1/P15-1150
+- [Tai15] Kai Sheng Tai, Richard Socher and Christopher D. Manning (2015). "Improved semantic representations from tree-structured long short-term memory networks". In *Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)*, pp. 1556–1566. <http://dx.doi.org/10.3115/v1/P15-1150>
 
 *Footnotes.*
