@@ -10,7 +10,7 @@ author: Sori Lee and Mia
 
 We understand the architectural contributions of this work to be twofold:
 
-1. In previous works of graph representation-based theorem proving, relatively little sophistication has been afforded to the process of drawing the final embedding of a graph from its node embeddings. All of the only such works the reviewers are aware of, namely [Wang17] and [Pal20], simply take the maximum of the node embeddings.[^1] The work under discussion introduces so-called DAG LSTMs, a simple generalisation of Tree LSTMs [Tai15], and uses it for the aggregation of node embeddings in an effort to TBC
+1. In previous works of graph representation-based theorem proving, relatively little sophistication has been afforded to the process of drawing the final embedding of a graph from its node embeddings. All of such works the reviewers are aware of, which are just [Wang17] and [Pal20], simply take the maximum of the node embeddings.[^1] The work under discussion introduces so-called DAG LSTMs, a simple generalisation of Tree LSTMs [Tai15], and uses it for the aggregation of node embeddings in an effort to TBC
 
 <!-- This effort 
 
