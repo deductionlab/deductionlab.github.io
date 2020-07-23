@@ -4,7 +4,7 @@ date: 2020-07-14 KST
 author: Sori Lee and Mia
 ---
 
-# Review of "Improving ... Subgraph Pooling" by Crouse et al. (2020)
+# Review of "Improving ... Subgraph Pooling" by Crouse *et al.* (2020)
 
 ## Overview
 
