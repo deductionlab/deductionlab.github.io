@@ -14,4 +14,4 @@ We understand the architectural contributions of this work to be twofold:
 For instance, Paliwal *et al.* (2020) simply take the maximum of the node embeddings as the graph's embedding.[^1]
 
 [^1]: [Pal2020], §&nbsp;5.3, *GNN Hyperparameters*:
-> The node embeddings $$h_v$$ returned by the graph neural network are then aggregated into a single vector that represents the embedding of the entire graph. ... Then we perform max pooling over all node embeddings to create a single vector of size 1024.
+      > The node embeddings $$h_v$$ returned by the graph neural network are then aggregated into a single vector that represents the embedding of the entire graph. ... Then we perform max pooling over all node embeddings to create a single vector of size 1024.
