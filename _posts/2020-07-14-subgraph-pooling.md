@@ -6,26 +6,13 @@ author: Sori Lee and Mia
 
 # Review of "Improving ... Subgraph Pooling" by Crouse *et al.* (2020)
 
-## Overview
+### Overview
 
-We understand the architectural contributions of this work to be twofold:
+We understand the architectural contributions of this work to be twofold. Both moves seek to improve the neural representations of logical formulae so that they are better suited particularly for the two crucial subtasks of theorem proving: premise selection and proof step classification.
 
-1. In previous works of graph representation-based theorem proving, relatively little sophistication has been afforded to the process of drawing the final embedding of a graph from its node embeddings. All of such works the reviewers are aware of, which are just [Wang17] and [Pal20], simply take the maximum of the node embeddings.[^1] The work under discussion introduces so-called DAG LSTMs, a simple generalisation of Tree LSTMs [Tai15], and uses it for the aggregation of node embeddings in an effort to TBC
+1. In previous works of graph neural network-based theorem proving, relatively little deliberation has been afforded to the process of drawing the final embedding of a graph from its node embeddings. All of such works the reviewers are aware of, which are just [Wang17] and [Pal20], simply take the maximum of the node embeddings.[^1] The work under discussion introduces so-called DAG LSTMs, a simple generalisation of Tree LSTMs [Tai15], to use it for the aggregation of node embeddings in a manner that respects the structure of the formula graph.
 
-<!-- This effort 
-
-
-
- to aggregate the node embeddings in a way respecting 
-
-
-
- The work under discussion adds sophistication to 
-invents / devises 
-uses so-called DAG LSTM
-in order to take the graph structure of the formula into account
-
-from the syntax tree of the formula.-->
+2. Previous neural approaches to automated theorem proving, certainly all the two that used graph neural networks, have embedded premise and conjecture formulae independently of each other.[^2] The authors consider this as a room for improvement, and proposes an attention mechanism that facilitates the exchange of information between the two graph embeddings.
 
 [^1]: [Pal20], §&nbsp;5.3, *GNN Hyperparameters*:
 
@@ -35,8 +22,23 @@ from the syntax tree of the formula.-->
 
       > Then we max-pool the node embeddings across all of nodes in the graph to form an embedding for the graph.
 
+[^2]: [Cro20v3], p.&nbsp;2 writes:
 
-## References
+      > Additionally, most prior approaches have embedded the premise and conjecture formulae independently of each other [22, 21, 23, 18].
+
+      Here, the citations 22 and 23 are the two previous graph-based appraoches.
+
+### Overall architecture
+
+### DAG LSTMs
+
+### Attention mechanism for information exchange between premises and conjectures
+
+<!-- Discussions -->
+
+### References
+
+- [Cro20v3] Maxwell Crouse, Ibrahim Abdelaziz, Cristina Cornelio, Veronika Thost, Lingfei Wu, Kenneth Forbus and Achille Fokoue. "Improving Graph Neural Network Representations of Logical Formulae with Subgraph Pooling". 5 Jun 2020. <https://arxiv.org/abs/1911.06904v3>
 
 - [Pal20] Aditya Paliwal, Sarah Loos, Markus Rabe, Kshitij Bansal and Christian Szegedy (2020). "Graph Representation for Higher-Order Logic and Theorem Proving". In *Proceedings of the AAAI Conference on Artificial Intelligence*, 34(03), 2967-2974. Palo Alto, California, USA: AAAI Press. <https://doi.org/10.1609/aaai.v34i03.5689>
 
