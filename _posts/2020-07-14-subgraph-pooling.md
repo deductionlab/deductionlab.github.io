@@ -22,7 +22,7 @@ We understand the architectural contributions of this work to be twofold. Both m
 
       > Then we max-pool the node embeddings across all of nodes in the graph to form an embedding for the graph.
 
-[^2]: [Cro20v3], p.&nbsp;2 writes:
+[^2]: The work under discussion, [Cro20v3], on p.&nbsp;2 writes:
 
       > Additionally, most prior approaches have embedded the premise and conjecture formulae independently of each other [22, 21, 23, 18].
 
