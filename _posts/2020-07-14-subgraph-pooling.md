@@ -37,14 +37,12 @@ We understand the modelling contributions of this work to be twofold. Both moves
 The DAG LSTM is a simple generalisation of the N-ary Tree LSTM [Tai15].
 It is basically an intact adaptation of the latter to directed acyclic graphs, except for an added flexibility over the direction of information flow: in an N-ary Tree LSTM, information flows from children to parents, whereas in a DAG LSTM, the direction is a hyperparameter.
 
-Let $$G = (V,E)$$ be a *simple* directed acyclic graph in the sense that there is at most one edge from one node to antoher.
-So $$E \subset V \times V$$.
-
+Let $$G = (V,E)$$ be a *simple* directed acyclic graph in the sense that there is at most one edge from one node to antoher: $$E \subset V \times V$$.
 Let $$R$$ be either $$E$$ or its reverse relation $$E^\mathrm{op}$$.
 
 The DAG LSTM is described by the following equations.
 
-1. The *input gate*: $$i_v = \sigma(W^\text{input}s_v + \displaystyle\sum_{w \in P_R(v)} )$$
+1. The *input gate*: $$i_v = \sigma(W^\text{input}s_v + \displaystyle\sum_{w \in V \mid vRw} U^{\text{input},t(v,w)} h_w + b^{\text{input}} )$$
 
 2. The *output gate*: $$o_v =   $$
 
