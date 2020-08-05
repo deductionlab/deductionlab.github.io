@@ -8,9 +8,9 @@ author: Sori Lee and Mia
 
 ### Overview
 
-We understand the modelling contributions of this work to be twofold. Both moves seek to improve the neural representations of logical formulae so that they are better suited particularly for the two crucial subtasks of theorem proving: premise selection and proof step classification.
+We understand the modelling contributions of this work to be twofold. Both moves seek to improve the neural representations of logical formulae in such a way that they are better suited particularly for the two crucial subtasks of theorem proving: premise selection and proof step classification.
 
-1. In previous works of graph neural network-based theorem proving, relatively little deliberation has been afforded to the process of drawing the final embedding of a graph from its node embeddings. All of such works the reviewers are aware of, which are just [Wang17] and [Pal20], simply take the maximum of the node embeddings.[^1] The work under discussion introduces so-called DAG LSTMs, a simple generalisation of Tree LSTMs [Tai15], to use it for the aggregation of node embeddings in a manner that respects the structure of the formula graph.
+1. In previous works of graph neural network-based theorem proving, relatively little sophistication has been afforded to the process of drawing the final embedding of a graph from its node embeddings. All such works the reviewers are aware of, which are just [Wang17] and [Pal20], simply take the maximum of the node embeddings.[^1] The work under discussion introduces so-called DAG LSTMs, a simple generalisation of Tree LSTMs [Tai15], and use it for the aggregation of node embeddings in a manner that respects the structure of the formula graph.
 
 2. Previous neural approaches to automated theorem proving, certainly all the two that used graph neural networks, have embedded premise and conjecture formulae independently of each other.[^2] The authors consider this as a room for improvement, and proposes an attention mechanism that facilitates the exchange of information between the two graph embeddings.
 
@@ -30,14 +30,20 @@ We understand the modelling contributions of this work to be twofold. Both moves
 
 ### Overall architecture
 
+
+
 ### DAG LSTMs
 
-The DAG LSTM is a simple generalisation of the Child-Sum Tree LSTM.
-It is basically an intact adaptation of the latter to directed acyclic graphs, except for an added flexibility over the direction of information flow.
-In Child-Sum Tree LSTMs, information flows from children to parents.
-In DAG LSTMs, the direction is a hyperparameter.
+The DAG LSTM is a simple generalisation of the Child-Sum Tree LSTM [Tai15].
+It is basically an intact adaptation of the latter to directed acyclic graphs, except for an added flexibility over the direction of information flow: in a Child-Sum Tree LSTM, information flows from children to parents, whereas in a DAG LSTM, the direction is a hyperparameter.
 
-Formally, 
+The DAG LSTM is described by the following equations.
+
+1. $$i_v = \sigma(W^\text{input})$$
+
+<!--
+
+Let $$R$$ be
 
 A DAG LSTM is determined by the following equations
 
@@ -53,8 +59,6 @@ The *forget gate* at $$v$$ refers to the function
 f_v = \sigma(W^\text{f}s_v + \sum_{w \in V \mid vRw} U^\text{f}_).
 \\]
 
-
-
  that takes
 - a vector
 - a vector
@@ -66,12 +70,12 @@ Its independent variable is
 It is defined in terms of three subcomponents: *forget gate*, *input gate* and *output gate*.
 Each gate is a function that 
 
-
+-->
 
 
 ### Attention mechanism for information exchange between premises and conjectures
 
-<!-- Discussions -->
+<!-- ### Discussions -->
 
 ### References
 
