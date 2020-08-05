@@ -44,9 +44,9 @@ Let $$R$$ be either $$E$$ or its reverse relation $$E^\mathrm{op}$$.
 
 The DAG LSTM is described by the following equations.
 
-1. $$i_v = \sigma(W^\text{input}s_v + \displaystyle\sum_{w \in P_R(v)} )$$ (the *input gate*)
+1. The *input gate*: $$i_v = \sigma(W^\text{input}s_v + \displaystyle\sum_{w \in P_R(v)} )$$
 
-2. $$o_v =   $$
+2. The *output gate*: $$o_v =   $$
 
 <!--
 
