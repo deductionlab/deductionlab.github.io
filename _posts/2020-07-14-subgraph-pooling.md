@@ -39,9 +39,9 @@ It is basically an intact adaptation of the latter to directed acyclic graphs, e
 
 The DAG LSTM is described by the following equations.
 
-1. $$i_v = \sigma(W^\text{input})$$ Why centrise?
+1. $$i_v = \sigma(W^\text{input}s_v + \sum_{w \in P_R(v)})$$.
 
-2. 
+2. Hmm
 
 <!--
 
