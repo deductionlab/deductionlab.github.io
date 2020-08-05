@@ -32,6 +32,15 @@ We understand the modelling contributions of this work to be twofold. Both moves
 
 ### DAG LSTMs
 
+The DAG LSTM is a simple generalisation of the Child-Sum Tree LSTM.
+It is basically an intact adaptation of the latter to directed acyclic graphs, except for an added flexibility over the direction of information flow.
+In Child-Sum Tree LSTMs, information flows from children to parents.
+In DAG LSTMs, the direction is a hyperparameter.
+
+Formally, 
+
+A DAG LSTM is determined by the following equations
+
 DAG LSTMs are a simple generalisation of Child-Sum Tree-LSTMs [Tai15]. Here I will give a self-contained description of DAG LSTMs without reference to Tree LSTMs.
 
 A DAG LSTM consists of DAG LSTM *units* indexed by nodes $$v$$.
