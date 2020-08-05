@@ -42,17 +42,19 @@ Let $$R$$ be either $$E$$ or its reverse relation $$E^\mathrm{op}$$.
 
 The DAG LSTM is described by the following equations.
 
-1. The *input gate*: $$i_v = \sigma( W^\text{in}s_v + \displaystyle\sum_{w \in V \mid vRw} U^{\text{in},t(v,w)} h_w + b^{\text{in}} )$$
+1. The *input gate*: $$i_v = \sigma( W^\text{in}s_v + \displaystyle\sum_{w \in V \mid vRw} U^{\text{in},t(v,w)} h_w + b^{\text{in}} )$$.
 
-2. The *output gate*: $$o_v = \sigma( W^\text{out}s_v + \displaystyle\sum_{w \in V \mid vRw} U^{\text{out},t(v,w)} h_w + b^{\text{out}} )$$
+2. The *output gate*: $$o_v = \sigma( W^\text{out}s_v + \displaystyle\sum_{w \in V \mid vRw} U^{\text{out},t(v,w)} h_w + b^{\text{out}} )$$.
 
-3. The *forget gate*: $$f_{e} = \tanh( W^\text{fgt}s_v + U^{\text{fgt},t(e)} h_w + b^{\text{fgt}} )$$
+3. The *forget gate*: $$f_{e} = \tanh( W^\text{fgt}s_v + U^{\text{fgt},t(e)} h_w + b^{\text{fgt}} )$$.
 
 4. $$\hat{c}_v = \tanh( W^\text{cell}s_v + \displaystyle\sum_{w \in V \mid vRw} U^{\text{cell},t(v,w)} h_w + b^{\text{cell}} )$$.
 
 5. $$c_v = i_v \odot \hat{c}_v + \displaystyle\sum_{w \in V \mid vRw} f_{(v,w)} \odot c_w$$.
 
 6. $$h_v = o_v \odot \tanh(c_v)$$.
+
+TBC.
 
 <!--
 
