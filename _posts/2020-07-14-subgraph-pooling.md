@@ -10,7 +10,7 @@ author: Sori Lee and Mia
 
 We understand the modelling contributions of this work to be twofold. Both moves seek to improve the neural representations of logical formulae in such a way that they are better suited for the two crucial subtasks of theorem proving particularly: premise selection and proof step classification.
 
-1. In previous works of graph neural network-based theorem proving, relatively little sophistication has been afforded to the process of drawing the final embedding of a graph from its node embeddings. All such works the reviewers are aware of, which are just [Wang17] and [Pal20], simply take the maximum of the node embeddings.[^1] The work under discussion introduces so-called DAG LSTMs, a simple generalisation of Tree LSTMs [Tai15], and use it for the aggregation of node embeddings in a manner that respects the structure of the formula graph.
+1. In previous works of graph neural network-based theorem proving, relatively little sophistication has been afforded to the process of drawing the final embedding of a graph from its node embeddings. All such works the reviewers are aware of, which are just [Wang17] and [Pal20], simply take the maximum of the node embeddings.[^1] The work under discussion introduces so-called DAG LSTMs, a simple generalisation of Tree LSTMs [Tai15], and use it for the aggregation of node embeddings in a manner that respects the structure of the graph.
 
 2. Previous neural approaches to automated theorem proving, certainly all the two that used graph neural networks, have embedded premise and conjecture formulae independently of each other.[^2] The authors consider this as a room for improvement, and proposes an attention mechanism that facilitates the exchange of information between the two graph embeddings.
 
@@ -34,14 +34,19 @@ We understand the modelling contributions of this work to be twofold. Both moves
 
 ### DAG LSTMs
 
-The DAG LSTM is a simple generalisation of the Child-Sum Tree LSTM [Tai15].
-It is basically an intact adaptation of the latter to directed acyclic graphs, except for an added flexibility over the direction of information flow: in a Child-Sum Tree LSTM, information flows from children to parents, whereas in a DAG LSTM, the direction is a hyperparameter.
+The DAG LSTM is a simple generalisation of the N-ary Tree LSTM [Tai15].
+It is basically an intact adaptation of the latter to directed acyclic graphs, except for an added flexibility over the direction of information flow: in an N-ary Tree LSTM, information flows from children to parents, whereas in a DAG LSTM, the direction is a hyperparameter.
+
+Let $$G = (V,E)$$ be a *simple* directed acyclic graph in the sense that there is at most one edge from one node to antoher.
+So $$E \subset V \times V$$.
+
+Let $$R$$ be either $$E$$ or its reverse relation $$E^\mathrm{op}$$.
 
 The DAG LSTM is described by the following equations.
 
-1. $$i_v = \sigma(W^\text{input}s_v + \displaystyle\sum_{w \in P_R(v)})$$.
+1. $$i_v = \sigma(W^\text{input}s_v + \displaystyle\sum_{w \in P_R(v)} )$$ (the *input gate*)
 
-2. Hmm
+2. $$o_v =   $$
 
 <!--
 
