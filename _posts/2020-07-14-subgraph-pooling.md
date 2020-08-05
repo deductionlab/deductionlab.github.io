@@ -8,7 +8,7 @@ author: Sori Lee and Mia
 
 ### Overview
 
-We understand the modelling contributions of this work to be twofold. Both moves seek to improve the neural representations of logical formulae in such a way that they are better suited particularly for the two crucial subtasks of theorem proving: premise selection and proof step classification.
+We understand the modelling contributions of this work to be twofold. Both moves seek to improve the neural representations of logical formulae in such a way that they are better suited for the two crucial subtasks of theorem proving particularly: premise selection and proof step classification.
 
 1. In previous works of graph neural network-based theorem proving, relatively little sophistication has been afforded to the process of drawing the final embedding of a graph from its node embeddings. All such works the reviewers are aware of, which are just [Wang17] and [Pal20], simply take the maximum of the node embeddings.[^1] The work under discussion introduces so-called DAG LSTMs, a simple generalisation of Tree LSTMs [Tai15], and use it for the aggregation of node embeddings in a manner that respects the structure of the formula graph.
 
