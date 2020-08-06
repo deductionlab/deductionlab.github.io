@@ -37,7 +37,7 @@ We understand the architectural contributions of this work to machine-learned th
 The DAG LSTM is a simple generalisation of the N-ary Tree LSTM [Tai15].
 It is basically an intact adaptation of the latter to directed acyclic graphs, except for an added flexibility over the direction of information flow: in an N-ary Tree LSTM, information flows from children to parents, whereas in a DAG LSTM, the direction is a hyperparameter.
 
-Let $$G = (V,E)$$ be a simple directed acyclic graph ($$E \subset V \times V$$).
+Let $$G = (V,E)$$ be a simple ($$E \subset V \times V$$) directed acyclic graph.
 Let $$R$$ be either the relation $$E$$ or its inverse $$E^{-1}$$.
 
 The DAG LSTM is described by the following equations.
