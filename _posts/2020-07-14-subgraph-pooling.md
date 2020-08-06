@@ -8,7 +8,7 @@ author: Sori Lee and Mia
 
 ### Overview
 
-We understand the architectural contributions of this work to machine-learned theorem proving to be twofold. Both moves seek to improve the neural representations of logical formulae in such a way that they are better suited for the two crucial subtasks of theorem proving particularly: premise selection and proof step classification.
+We understand the architectural contributions of this work to machine-learned theorem proving to be twofold. Both of the two seek to improve the neural representations of logical formulae in such a way that they are better suited for two major subtasks of theorem proving particularly: premise selection and proof step classification.
 
 1. In previous works of graph neural network-based theorem proving, relatively little sophistication has been afforded to the process of drawing the final embedding of a graph from its node embeddings. All such works the reviewers are aware of, which are just [Wang17] and [Pal20], simply take the maximum of the node embeddings.[^1] The work under discussion introduces so-called DAG LSTMs, a simple generalisation of Tree LSTMs [Tai15], and use it for the aggregation of node embeddings in a manner that respects the structure of the graph.
 
@@ -35,19 +35,42 @@ We understand the architectural contributions of this work to machine-learned th
 ### DAG LSTMs
 
 The DAG LSTM is a simple generalisation of the N-ary Tree LSTM [Tai15].
+Recall that an N-ary Tree LSTM takes trees with a fixed maximum branching factor (in other words, $N$-ary trees for a fixed $N \in \mathbf{Z}_{\geq 0}$) in which children are ordered.
+A DAG LSTM is a generalisation in that it takes simple DAGs with typed edges for a fixed set of edge types: indeed, any $N$-ary tree whose children are ordered is a simple DAG with $$\{0,\ldots,N-1\}$$-typed edges, without loss of information[^3].
+Other than a straight adaptation for this generalisation, there is no change from the N-ary Tree LSTM.
+
+[^3]: That is, there is an injective function from the set consisting of the former to the set consisting of the latter.
+
+<!-- Why not Chlid-Sum Tree LSTM approach? -->
+
+<!--
 It is basically an intact adaptation of the latter to directed acyclic graphs, except for an added flexibility over the direction of information flow: in an N-ary Tree LSTM, information flows from children to parents, whereas in a DAG LSTM, the direction is a hyperparameter.
 
-Formally, a *DAG LSTM* is given by the following hyperparameters and parameters.
+A *model* of DAG LSTM is given by the following hyperparameters and parameters.
+-->
 
-*Hyperparameters.*
+*Model hyperparameters.*
 
-1. $$\delta \in \{-1, 1\}$$, the direction of information flow. $$1$$ means information flows according to the direction of edges, and $$-1$$ means it flows in the opposite direction.
+1. $$\delta \in \{-1, 1\}$$, the direction of information flow. $$1$$ means information flows in accordance with the direction of edges, and $$-1$$ means it flows in the opposite direction.
 
-2. A set $$T$$ of *edge types*.
+2. $$T$$, a finite set of *edge types*.
 
-*Parameters.* TBC.
+*Model parameters.* TBC.
 
-The input to a DAG LSTM 
+The inputs to DAG LSTM with respect to hyperparameters $$(\delta,T)$$ are as follows.
+
+1. A triple $$(V,E,t)$$, where $$(V,E)$$
+
+   - $$(V,E)$$ is a simple DAG ($$E \subset V \times V$$), and
+   - $$t$$ is a function $$E \to T$$.
+
+   The triple may be referred to as the *input graph*.
+
+2. For each node $$v \in 
+
+$$s_v$$, the input embedding.
+
+is a directed acyclic graph equipped with a function $$
 
 Let $$G = (V,E,T,\tau)$$ be a simple ($$E \subset V \times V$$) directed acyclic graph.
 Let $$R$$ be either the relation $$E$$ or its inverse $$E^{-1}$$.
