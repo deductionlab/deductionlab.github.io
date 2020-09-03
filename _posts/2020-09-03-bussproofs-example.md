@@ -4,9 +4,9 @@ date: 2020-09-03 KST
 author: Sori Lee
 ---
 
-# Bussproofs Test
+# Bussproofs Example
 
-$$x^2 = 3$$
+Here is a proof tree:
 
 \begin{prooftree}
       \AxiomC{}
