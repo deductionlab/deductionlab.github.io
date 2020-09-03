@@ -6,7 +6,7 @@ author: Sori Lee
 
 # Bussproofs Example
 
-Here is a proof tree:
+Here is an example proof tree drawn with `bussproofs`:
 
 \begin{prooftree}
       \AxiomC{}
