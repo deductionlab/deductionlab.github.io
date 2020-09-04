@@ -59,7 +59,7 @@ A *model* of DAG LSTM is given by the following hyperparameters and parameters.
 
 *Model parameters.*
 
-3. $$W^\mathrm{in} \in \mathbf{R}^{n \times k}$$.
+3. $$W^\mathrm{in} \in \mathbf{R}^{n \times k}$$, the weights for the input gate.
 
 
 
