@@ -10,15 +10,15 @@ author: Sori Lee and Mia
 
 We understand the architectural contributions of this work to machine-learned theorem proving to be twofold. Both of the two seek to improve the neural representations of logical formulae in such a way that they are better suited for two major subtasks of theorem proving particularly: premise selection and proof step classification.
 
-1. In previous works of graph neural network-based theorem proving, relatively little sophistication has been afforded to the process of drawing the final embedding of a graph from its node embeddings. All such works the reviewers are aware of, which are just [Wang17] and [Pal20], simply take the maximum of the node embeddings.[^1] The work under discussion introduces so-called DAG LSTM, a simple generalisation of Tree LSTM [Tai15], and use it for the aggregation of node embeddings in a manner that respects the structure of the graph.
+1. In previous works of graph neural network-based theorem proving, relatively little sophistication has been afforded to the process of drawing the final embedding of a graph from its node embeddings. All such works the reviewers are aware of, which are just Wang *et al.* (2017) and Paliwal *et al.* (2020), simply take the maximum of the node embeddings.[^1] The work under discussion introduces so-called DAG LSTM, a simple generalisation of Tree LSTM (Tai *et al.* 2015), and use it for the aggregation of node embeddings in a manner that respects the structure of the graph.
 
 2. Previous neural approaches to automated theorem proving, certainly both of the two that used graph neural networks, have embedded premise and conjecture formulae independently of each other.[^2] The authors consider this as a room for improvement, and proposes an attention mechanism that facilitates the exchange of information between the two graph embeddings.
 
-[^1]: [Pal20], §5.3, *GNN Hyperparameters*:
+[^1]: Paliwal *et al.* (2020), §5.3, *GNN Hyperparameters*:
 
       > The node embeddings $$h_v$$ returned by the graph neural network are then aggregated into a single vector that represents the embedding of the entire graph. ... Then we perform max pooling over all node embeddings to create a single vector of size 1024.
 
-      [Wang17], §3.2:
+      Wang *et al.* (2017), §3.2:
 
       > Then we max-pool the node embeddings across all of nodes in the graph to form an embedding for the graph.
 
@@ -34,7 +34,7 @@ We understand the architectural contributions of this work to machine-learned th
 
 ### DAG LSTM
 
-The DAG LSTM is a simple generalisation of the N-ary Tree LSTM [Tai15].
+The DAG LSTM is a simple generalisation of the N-ary Tree LSTM.
 An N-ary Tree LSTM takes trees with a fixed maximum branching factor <!--(in other words, $N$-ary trees for a fixed $N \in \mathbf{Z}_{\geq 0}$)--> with ordered children.
 A DAG LSTM generalises this, in that it takes simple DAGs with typed edges for a fixed set of edge types: indeed, any $$N$$-ary tree (i.e. a tree whose maximum branching factor is $$N$$) with ordered is a simple DAG with $$\{0,\ldots,N-1\}$$-typed edges, without any loss of information[^3].
 Other than a straight adaptation for this generalisation, there is no change from the N-ary Tree LSTM.
@@ -139,10 +139,10 @@ Each gate is a function that
 
 ### References
 
-- [Cro20v3] Maxwell Crouse, Ibrahim Abdelaziz, Cristina Cornelio, Veronika Thost, Lingfei Wu, Kenneth Forbus and Achille Fokoue. "Improving Graph Neural Network Representations of Logical Formulae with Subgraph Pooling". 5 Jun 2020. <https://arxiv.org/abs/1911.06904v3>
+- Maxwell Crouse, Ibrahim Abdelaziz, Cristina Cornelio, Veronika Thost, Lingfei Wu, Kenneth Forbus and Achille Fokoue (5 Jun 2020). "Improving Graph Neural Network Representations of Logical Formulae with Subgraph Pooling". <https://arxiv.org/abs/1911.06904v3>
 
-- [Pal20] Aditya Paliwal, Sarah Loos, Markus Rabe, Kshitij Bansal and Christian Szegedy (2020). "Graph Representation for Higher-Order Logic and Theorem Proving". In *Proceedings of the AAAI Conference on Artificial Intelligence*, 34(03), 2967-2974. Palo Alto, California, USA: AAAI Press. <https://doi.org/10.1609/aaai.v34i03.5689>
+- Aditya Paliwal, Sarah Loos, Markus Rabe, Kshitij Bansal and Christian Szegedy (2020). "Graph Representation for Higher-Order Logic and Theorem Proving". In *Proceedings of the AAAI Conference on Artificial Intelligence*, 34(03), 2967-2974. Palo Alto, California, USA: AAAI Press. <https://doi.org/10.1609/aaai.v34i03.5689>
 
-- [Tai15] Kai Sheng Tai, Richard Socher and Christopher D. Manning (2015). "Improved semantic representations from tree-structured long short-term memory networks". In *Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)*, pp. 1556–1566. <http://dx.doi.org/10.3115/v1/P15-1150>
+- Kai Sheng Tai, Richard Socher and Christopher D. Manning (2015). "Improved semantic representations from tree-structured long short-term memory networks". In *Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)*, pp. 1556–1566. <http://dx.doi.org/10.3115/v1/P15-1150>
 
 *Footnotes.*
