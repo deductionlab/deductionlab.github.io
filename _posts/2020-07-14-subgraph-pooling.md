@@ -4,7 +4,9 @@ date: 2020-07-14 KST
 author: Sori Lee and Mia
 ---
 
-# Review of "Improving ... Subgraph Pooling" by Crouse *et al.* (2020)
+# Review of Crouse *et al.* (2020)
+
+These are our notes on the preprint "Improving Graph Neural Network Representations of Logical Formulae with Subgraph Pooling" by Crouse *et al.* (2020).
 
 ### Overview
 
