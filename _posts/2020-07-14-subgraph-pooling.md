@@ -10,9 +10,9 @@ author: Sori Lee and Mia
 
 We understand the architectural contributions of this work to machine-learned theorem proving to be twofold. Both of the two seek to improve the neural representations of logical formulae in such a way that they are better suited for two major subtasks of theorem proving particularly: premise selection and proof step classification.
 
-1. In previous works of graph neural network-based theorem proving, relatively little sophistication has been afforded to the process of drawing the final embedding of a graph from its node embeddings. All such works the reviewers are aware of, which are just [Wang17] and [Pal20], simply take the maximum of the node embeddings.[^1] The work under discussion introduces so-called DAG LSTMs, a simple generalisation of Tree LSTMs [Tai15], and use it for the aggregation of node embeddings in a manner that respects the structure of the graph.
+1. In previous works of graph neural network-based theorem proving, relatively little sophistication has been afforded to the process of drawing the final embedding of a graph from its node embeddings. All such works the reviewers are aware of, which are just [Wang17] and [Pal20], simply take the maximum of the node embeddings.[^1] The work under discussion introduces so-called DAG LSTM, a simple generalisation of Tree LSTM [Tai15], and use it for the aggregation of node embeddings in a manner that respects the structure of the graph.
 
-2. Previous neural approaches to automated theorem proving, certainly all the two that used graph neural networks, have embedded premise and conjecture formulae independently of each other.[^2] The authors consider this as a room for improvement, and proposes an attention mechanism that facilitates the exchange of information between the two graph embeddings.
+2. Previous neural approaches to automated theorem proving, certainly both of the two that used graph neural networks, have embedded premise and conjecture formulae independently of each other.[^2] The authors consider this as a room for improvement, and proposes an attention mechanism that facilitates the exchange of information between the two graph embeddings.
 
 [^1]: [Pal20], §&nbsp;5.3, *GNN Hyperparameters*:
 
@@ -32,11 +32,11 @@ We understand the architectural contributions of this work to machine-learned th
 
 
 
-### DAG LSTMs
+### DAG LSTM
 
 The DAG LSTM is a simple generalisation of the N-ary Tree LSTM [Tai15].
-Recall that an N-ary Tree LSTM takes trees with a fixed maximum branching factor (in other words, $N$-ary trees for a fixed $N \in \mathbf{Z}_{\geq 0}$) in which children are ordered.
-A DAG LSTM is a generalisation in that it takes simple DAGs with typed edges for a fixed set of edge types: indeed, any $N$-ary tree whose children are ordered is a simple DAG with $$\{0,\ldots,N-1\}$$-typed edges, without loss of information[^3].
+An N-ary Tree LSTM takes trees with a fixed maximum branching factor <!--(in other words, $N$-ary trees for a fixed $N \in \mathbf{Z}_{\geq 0}$)--> whose children are ordered.
+A DAG LSTM generalises this, in that it takes simple DAGs with typed edges for a fixed set of edge types: indeed, any $$N$$-ary tree (i.e. a tree whose maximum branching factor is $N$) whose children are ordered is a simple DAG with $$\{0,\ldots,N-1\}$$-typed edges, without any loss of information[^3].
 Other than a straight adaptation for this generalisation, there is no change from the N-ary Tree LSTM.
 
 [^3]: That is, there is an injective function from the set consisting of the former to the set consisting of the latter.
@@ -49,14 +49,21 @@ It is basically an intact adaptation of the latter to directed acyclic graphs, e
 A *model* of DAG LSTM is given by the following hyperparameters and parameters.
 -->
 
+**Definition.** A *model* of DAG LSTM consists of the following data.
+
 *Model hyperparameters.*
 
 1. $$\delta \in \{-1, 1\}$$, the direction of information flow. $$1$$ means information flows in accordance with the direction of edges, and $$-1$$ means it flows in the opposite direction.
 
 2. $$T$$, a finite set of *edge types*.
 
-*Model parameters.* TBC.
+*Model parameters.*
 
+3. $$W^\mathrm{in} \mathbf{R}^{n \times k}$$ 
+
+TBC
+
+<!--
 The inputs to DAG LSTM with respect to hyperparameters $$(\delta,T)$$ are as follows.
 
 1. A triple $$(V,E,t)$$, where $$(V,E)$$
@@ -66,7 +73,7 @@ The inputs to DAG LSTM with respect to hyperparameters $$(\delta,T)$$ are as fol
 
    The triple may be referred to as the *input graph*.
 
-2. For each node $$v \in 
+2. For each node $$v$$
 
 $$s_v$$, the input embedding.
 
@@ -74,8 +81,9 @@ is a directed acyclic graph equipped with a function $$
 
 Let $$G = (V,E,T,\tau)$$ be a simple ($$E \subset V \times V$$) directed acyclic graph.
 Let $$R$$ be either the relation $$E$$ or its inverse $$E^{-1}$$.
+-->
 
-The DAG LSTM is described by the following equations.
+The evaluation of DAG LSTM is described by the following equations.
 
 1. The *input gate*: $$i_v = \sigma( W^\text{in}s_v + \displaystyle\sum_{w \in V \mid vRw} U^{\text{in},t(v,w)} h_w + b^{\text{in}} )$$.
 
