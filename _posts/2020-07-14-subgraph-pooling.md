@@ -36,7 +36,7 @@ We understand the architectural contributions of this work to machine-learned th
 
 The DAG LSTM is a simple generalisation of the N-ary Tree LSTM [Tai15].
 An N-ary Tree LSTM takes trees with a fixed maximum branching factor <!--(in other words, $N$-ary trees for a fixed $N \in \mathbf{Z}_{\geq 0}$)--> whose children are ordered.
-A DAG LSTM generalises this, in that it takes simple DAGs with typed edges for a fixed set of edge types: indeed, any $$N$$-ary tree (i.e. a tree whose maximum branching factor is $N$) whose children are ordered is a simple DAG with $$\{0,\ldots,N-1\}$$-typed edges, without any loss of information[^3].
+A DAG LSTM generalises this, in that it takes simple DAGs with typed edges for a fixed set of edge types: indeed, any $$N$$-ary tree (i.e. a tree whose maximum branching factor is $$N$$) whose children are ordered is a simple DAG with $$\{0,\ldots,N-1\}$$-typed edges, without any loss of information[^3].
 Other than a straight adaptation for this generalisation, there is no change from the N-ary Tree LSTM.
 
 [^3]: That is, there is an injective function from the set consisting of the former to the set consisting of the latter.
