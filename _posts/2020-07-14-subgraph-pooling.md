@@ -14,15 +14,15 @@ We understand the architectural contributions of this work to machine-learned th
 
 2. Previous neural approaches to automated theorem proving, certainly both of the two that used graph neural networks, have embedded premise and conjecture formulae independently of each other.[^2] The authors consider this as a room for improvement, and proposes an attention mechanism that facilitates the exchange of information between the two graph embeddings.
 
-[^1]: [Pal20], §&nbsp;5.3, *GNN Hyperparameters*:
+[^1]: [Pal20], §5.3, *GNN Hyperparameters*:
 
       > The node embeddings $$h_v$$ returned by the graph neural network are then aggregated into a single vector that represents the embedding of the entire graph. ... Then we perform max pooling over all node embeddings to create a single vector of size 1024.
 
-      [Wang17], §&nbsp;3.2:
+      [Wang17], §3.2:
 
       > Then we max-pool the node embeddings across all of nodes in the graph to form an embedding for the graph.
 
-[^2]: The work under discussion, [Cro20v3], on p.&nbsp;2 writes:
+[^2]: The work under discussion, [Cro20v3], on p. 2 writes:
 
       > Additionally, most prior approaches have embedded the premise and conjecture formulae independently of each other [22, 21, 23, 18].
 
@@ -59,7 +59,7 @@ A *model* of DAG LSTM is given by the following hyperparameters and parameters.
 
 *Model parameters.*
 
-3. $$W^\mathrm{in} \in \mathbf{R}^{n \times k}$$, the weights for the input gate.
+1. $$W^\mathrm{in} \in \mathbf{R}^{n \times k}$$, the weights for the input gate.
 
 
 
